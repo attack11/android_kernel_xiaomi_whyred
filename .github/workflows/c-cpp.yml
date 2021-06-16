@@ -1,0 +1,21 @@
+name: C/C++ CI
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+            BOT_API_TOKEN: ${{ secrets.BOT_API_TOKEN }}
+            KERNEL_CHAT_ID_PUBLIC: ${{ secrets.KERNEL_CHAT_ID_PUBLIC }}
+            KERNEL_CHAT_ID_PRIVATE: ${{ secrets.KERNEL_CHAT_ID_PRIVATE }}
+            STABLE_RELEASE_VERSION: ${{ secrets.STABLE_RELEASE_VERSION }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download scripts
+      run: git clone https://github.com/attack11/my_scripts.git
+    - name: Setup compiler
+      run: cd my_scripts && bash setup.sh --clang
+    - name: Build Kernel
+      run: cd my_scripts && bash build-4.19.sh --clang
