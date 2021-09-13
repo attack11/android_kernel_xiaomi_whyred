@@ -72,8 +72,15 @@
             05 01 00 00 14 00 02 28 00
             05 01 00 00 78 00 02 10 00
         ];
+		qcom,mdss-dsi-srgb-off-command = [
+ 		];
+		qcom,mdss-dsi-srgb-on-command = [
+		];
+
 		qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 		qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
+		qcom,mdss-dsi-srgb-off-command-state = "dsi_hs_mode";
+		qcom,mdss-dsi-srgb-on-command-state = "dsi_hs_mode";
 		qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
 		qcom,mdss-dsi-reset-sequence = <1 1>, <0 5>, <1 15>;
 		qcom,mdss-dsi-tx-eot-append;
